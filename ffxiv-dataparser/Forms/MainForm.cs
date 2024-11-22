@@ -1,4 +1,4 @@
-﻿using ffxiv_dataparser.Models.CsvTypes;
+﻿using ffxiv_dataparser.Models;
 using ffxiv_dataparser.Tools;
 
 namespace ffxiv_dataparser.Forms
@@ -12,7 +12,7 @@ namespace ffxiv_dataparser.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var test = CsvParser.ReadCsv<CsvTypes.Item>(@"F:\ffxiv-unpacks\ffxiv-datamining-cn\Item.csv");
+            var test = CsvParser.ReadCsv<CsvModels.Item>(@"D:\Final Fantasy\Experiments\Unpack\CHS\ffxiv-datamining-cn\Item.csv");
             Console.WriteLine("");
         }
     }

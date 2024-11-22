@@ -11,15 +11,15 @@ internal class CsvParser
     /// <summary>
     /// 读取给定的拆包CSV文件。自动会跳过第一行(数据index)和第三行(数据类型)
     /// </summary>
-    /// <typeparam name="CsvType">指定每一行的类型</typeparam>
+    /// <typeparam name="CsvModel">指定每一行的类型</typeparam>
     /// <param name="filePath">文件位置</param>
-    public static CR<List<CsvType>> ReadCsv<CsvType>(string filePath)
+    public static CR<List<CsvModel>> ReadCsv<CsvModel>(string filePath)
     {
         var csvconfig = new CsvConfiguration(CultureInfo.InvariantCulture);
         using var reader = GetCsvReader(filePath);
         using var csv = new CsvReader(reader, csvconfig);
 
-        var records = csv.GetRecords<CsvType>();
+        var records = csv.GetRecords<CsvModel>();
         if (records is null)
             return new("Error", "未读取到记录");
         else
